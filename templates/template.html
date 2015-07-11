@@ -1,0 +1,23 @@
+<!doctype html>
+
+<title>Test</title> 
+<meta charset=utf-8> 
+
+<body>
+	<! link that makes the server say something>
+	<a href="/my-link/">Click me</a>
+	<br><br>
+
+	<! link that downloads files>
+	<a href="/my-link-2/">Issue command to server</a>
+	<br><br>
+
+	<! form that lets user sumit a value and downloads based on that (not working)>
+	<form method="post" action="{{ url_for('req') }}">
+		<label for="npages">Number of Pages:</label>
+		<br>
+		<input type="text" name="npages" value="5">
+		<br>
+		<input type="submit" value="Make server do something" />
+	</form>
+</body>
