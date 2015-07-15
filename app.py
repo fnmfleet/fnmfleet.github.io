@@ -1,6 +1,6 @@
 # localhost:5000
-import subprocess, sys
-from flask import Flask, render_template, request, url_for
+import subprocess, sys, time, os.path
+from flask import Flask, render_template, request, send_file
 
 # init Flask application
 app = Flask(__name__)
@@ -14,49 +14,38 @@ def index():
 @app.route('/my-link/')
 def my_link():
 	print 'I got clicked!'
-	return 'ClickClick!'
+	return 'Click.'
 	# return ('',204)
 
-# **2**
-@app.route('/my-link-2/')
-def my_link_2():
-	cmd = ["perl", "/home/reid/Downloads/fnmfleet.github.io/download.pl"]
-	p = subprocess.Popen(cmd, stdout = subprocess.PIPE,
-                             stderr=subprocess.PIPE,
-                             stdin=subprocess.PIPE)
-	out,err = p.communicate()
-	return out
 	
 # **3**
 @app.route('/test/', methods=['POST'])
 def req():
+	start = time.time()
 	npages = request.form['npages']
-	# cmd = ["./download2.pl", str(npages)]
-#	p = subprocess.Popen(cmd, stdout = subprocess.STDOUT,
-#                            stderr=subprocess.STDOUT)
-#	out,err = p.communicate()
-	cmd = ["matlab", "-nodesktop", "-nosplash", "-r", "run('/home/reid/Dropbox/MATLAB/LL/example.m')"]
-	print cmd
+	cmd = ["./target_term", "-run", "1", "run", "/home/reid/Dropbox/MATLAB/LL/example.m"]
 	q = subprocess.Popen(cmd, stdout = subprocess.PIPE,
                             stderr=subprocess.PIPE,
                             stdin=subprocess.PIPE)
 	out,err = q.communicate()
-#	return npages
-	return render_template('result.html', npages=npages)
-#	filename = "test%s.htm" % str(npages)
-#	return render_template(filename)
+	while os.path.isfile('/home/reid/Downloads/fnmfleet.github.io/templates/perday.png')==False:
+		a = 5;
+	return render_template('result.html', time=time.time()-start, url0='cumulative.png', url1='pie.png', url2='perday.png')
+	# return render_template('result.html', time=time.time()-start)
 
-# **4**
-@app.route('/image/')
-def upImage():
-	cmd = ["./imgur", "templates/pie.png", "templates/cumulative.png", "templates/perday.png"]
-	# p = subprocess.Popen(cmd, stdout = subprocess.PIPE)
-	# out,err = p.communicate()
-	url = range(4)
-	out = 'http://i.imgur.com/3EsN13V.png\nhttp://i.imgur.com/S8Itlve.png\nhttp://i.imgur.com/xQBjh5S.png\nasdf'
-	for idx, line in enumerate(out.split('\n')):
-		url[idx] = line	
-	return render_template('image.html', url0=url[0], url1=url[1], url2=url[2])
+
+# images
+@app.route('/test/<path:filename>')
+def images(filename):
+	fullpath = '/home/reid/Downloads/fnmfleet.github.io/templates/' + filename
+	return send_file(fullpath)
+
+
+@app.route('/favicon.ico')
+def favicon():
+	return send_file('/home/reid/Downloads/fnmfleet.github.io/favicon.png')
+
+
 
 # run
 if __name__ == '__main__':

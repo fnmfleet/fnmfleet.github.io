@@ -1,0 +1,45 @@
+
+<pre>
+General stats:
+Postmaster             The 1337 Fleet (973, 19.5%)
+Start date             4/30/2015 05:41:21 PM
+End date               5/26/2015 09:53:39 PM
+Topic duration         26.2
+Most posts in 1 day    500
+Fewest posts in 1 day  46
+Average posts per day  191 (SD 123)
+Total users            60
+Users with  50+ posts  14
+Users with <50  posts  46
+Users with 1 post      19
+
+Stats amongst 'regulars' (50+ posts):
+Number of posts        4639 (92.8%)
+Posts by top tercile   2681 (53.6%)
+Posts by mid tercile   1437 (28.7%)
+Posts by bot tercile   521  (10.4%)
+Median posts per user  257
+Mean posts per user    331 (SD 281)
+Most consec posts      6 (The 1337 Fleet)
+Most consistent user   Duke Onkled
+Most erratic user      Phanthom
+
+Detailed Stats                     Fave     Most    Erra-  
+User                 Posts         Time     Consec  ticity 
+-------------------------------------------------------------
+The 1337 Fleet        973 (19.5%)  Af'noon  6       62  
+Envy                  882 (17.6%)  Evening  5       76  
+Big the Cat500        451 ( 9.0%)  Af'noon  4       60  
+Free Nelson Mandela   375 ( 7.5%)  Evening  2       53  
+Kim Hyoyeon           365 ( 7.3%)  Midday   4       44  
+DG123                 365 ( 7.3%)  Af'noon  5       60  
+OneeyedWilly          261 ( 5.2%)  Af'noon  5       97  
+DragonLordX3000       253 ( 5.1%)  Af'noon  2       51  
+Fried Rice            193 ( 3.9%)  Af'noon  4       71  
+Riot Grrl Sayakachan  149 ( 3.0%)  Af'noon  4       63  
+Phanthom              147 ( 2.9%)  Evening  2       127 
+Duke Onkled            98 ( 2.0%)  Midday   2       37  
+Zerovii                75 ( 1.5%)  Midday   2       47  
+jay-                   52 ( 1.0%)  Midday   2       61  
+</pre>
+

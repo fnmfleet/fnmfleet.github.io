@@ -1,3 +1,5 @@
 *.pl
 *~
 files/
+*.pid
+*.pyc
