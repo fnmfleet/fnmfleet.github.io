@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2015 by amalehuman (http://jsbin.com/doqiju/3/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Statslore</title>
+<style id="jsbin-css">
+body{
+  background-color:#cfcfcf;
+  font-family:Arial;
+}
+
+h1{
+  text-align: center;
+  background-color: #4b73aa;
+    
+}
+
+p{
+  font-weight:bold;
+}
+
+#note{
+  color:red;
+  font-style:italic;
+}
+</style>
+</head>
+<body>
+  <h1>yETI Statistical Lore Generator</h1>
+  <p>Generate topical stats:
+  <select>
+  <option value="tTop">Top 10 posters (ranked by number of posts)</option>
+  <option value="tTimeOfDay">Posts by time of day</option>
+  <option value="tOther">Other options?</option>
+</select>
+  <button>Generate</button></p>
+  
+  <p>Rank users by keyword: <input type="text" name="keyword"> <button>Generate</button></p>
+  
+  <p>Generate user stats:
+  <select>
+  <option value="uBasic">Basic stats</option>
+  <option value="uTimeOfDay">Posts by time of day</option>
+  <option value="uOther">Other options?</option>
+</select>
+    <button>Generate</button></p>
+  
+    <p id="note">btw none of the buttons will do anything</br>
+</body>
+</html>
