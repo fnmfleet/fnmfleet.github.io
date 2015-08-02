@@ -1,0 +1,75 @@
+<head>
+    <!-- style for table />-->
+	<link rel="stylesheet" href="http://tablesorter.com/themes/blue/style.css" type="text/css" media="print, projection, screen" />
+    <!-- jquery />-->
+<!--    <script type="text/javascript" src="C:/Users/Reid/Downloads/tablesorter/jquery-latest.js"></script> -->
+    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.js"></script>
+    <!-- jquery library for tablesorter />-->
+    
+    <script type="text/javascript" src="tablesorter/jquery.tablesorter.min.js"></script> 
+    
+    <script> 
+        // function to load file
+        function fileToTable() {
+            // load file
+            var xmlhttp, text;
+            xmlhttp = new XMLHttpRequest();
+            xmlhttp.open('GET', 'tableRawData.dat', false);
+            xmlhttp.send();
+            text = xmlhttp.responseText;
+            // split file by line
+            var lines = text.split('\n');
+            // table body header
+            document.write('<tbody>');
+            // iterate through lines
+            for (i = 0; i < lines.length; i++) {
+                document.write('<tr>');
+                // split line by fields
+                var fields = lines[i].split('//');
+                // write fields with appropriate table formatting
+                document.write('<td>'+fields[0]+'</td>'+
+                               '<td>'+fields[1]+'</td>'+
+                               '<td>'+fields[2]+' %'+'</td>'+
+                               '<td>'+fields[3]+'</td>'+
+                               '<td>'+fields[4]+'</td>'+
+                               '<td>'+fields[5]+'</td>'+
+                               '<td>'+fields[6]+'</td>');
+                document.write('</tr>');
+            }
+            // end table body header
+            document.write('<tbody>');                 
+        } 
+        // jquery function for displaying table
+        $(function() {
+            $("#tablesorter-demo").tablesorter({sortList:[[1,1]], widgets: ['zebra']});
+            $("#options").tablesorter({sortList: [[0,0]], headers: { 3:{sorter: false}, 4:{sorter: false}}});
+        });
+    </script> 
+    
+    
+</head>
+
+<body>
+    
+    <br>
+    <!-- show table -->
+    <table id="tablesorter-demo" class="tablesorter">
+		<thead>
+			<tr>
+				<th>User</th>
+				<th>Posts</th>
+				<th>% of Topic</th>
+				<th>Most Consec Posts</th>
+				<th>Consistency Rank</th>
+				<th>Most Posts in 1 Day</th>
+				<th>Replies Per Post</th>
+			</tr>
+		</thead>
+        <!-- calls function to write table body -->
+        <script>
+           fileToTable(); 
+        </script>
+	</table>
+    
+</body>
